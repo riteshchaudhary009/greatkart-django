@@ -8,7 +8,12 @@
 <!-- ========================= SECTION PAGETOP ========================= -->
 <section class="section-pagetop bg">
     <div class="container">
+    {% if 'search' in request.path %}
+    <!--serach results-->
+         <h2 class="title-page">Search Results</h2>
+    {% else %}
         <h2 class="title-page">Our Store</h2>
+    {% endif %}
     </div>
 </section>
 <!-- ========================= SECTION INTRO END// ========================= -->
@@ -214,6 +219,7 @@
 
                 <!-- Product List -->
                 <div class="row">
+                    {% if products %}
 
                     {% for product in products %}
 
@@ -262,10 +268,9 @@
                                         </del>
 
                                         {% endif %}
+                                       
 
-                                    </div>
-
-                                </div>
+                                        </div>
 
 
                                 <a
@@ -292,6 +297,15 @@
                     </div>
 
                     {% endfor %}
+                     {% else %}
+
+                    <dev>
+                        <h2> No result found. Please Try angain.
+                            
+                    </dev>
+                    {% endif %}
+
+                    </div>
 
                 </div>
                 <!-- Product List End -->
